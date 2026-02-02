@@ -1,0 +1,43 @@
+// MENU MOBILE
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+// LINKS DO APP (DEMO)
+const androidLink = document.getElementById("androidLink");
+const iosLink = document.getElementById("iosLink");
+
+androidLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  alert("Link do Android (demo). Troque pelo link real da Play Store.");
+});
+
+iosLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  alert("Link do iOS (demo). Troque pelo link real da App Store.");
+});
+
+// FORMULÁRIO
+const contactForm = document.getElementById("contactForm");
+const feedback = document.getElementById("formFeedback");
+
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const servico = document.getElementById("servico").value;
+  const mensagem = document.getElementById("mensagem").value.trim();
+
+  if (!nome || !email || !servico || !mensagem) {
+    feedback.textContent = "⚠️ Preencha todos os campos antes de enviar.";
+    return;
+  }
+
+  feedback.textContent = `✅ Obrigado, ${nome}! Recebemos seu contato sobre "${servico}". Em breve retornaremos.`;
+
+  contactForm.reset();
+});
